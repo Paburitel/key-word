@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { WordsGroupsComponent } from './words-groups/words-groups.component';
 import { WordGroupComponent } from './words-groups/word-group/word-group.component';
+import { WordGroupEditComponent } from './words-groups/word-group-edit/word-group-edit.component';
+import { TagsComponent } from './help-component/tags/tags.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { WordGroupComponent } from './words-groups/word-group/word-group.compone
     AppComponent,
     HeaderComponent,
     WordsGroupsComponent,
-    WordGroupComponent
+    WordGroupComponent,
+    WordGroupEditComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
