@@ -30,7 +30,6 @@ export class Group {
     while (tempModel.length) {
       tempArr.push(tempModel.splice(0, size));
     }
-    console.log(this._words);
     return this._wordsArr = tempArr;
   }
   get words() {
@@ -40,12 +39,12 @@ export class Group {
     return this._wordsArr;
   }
   set words(words: Word[]) {
-    this.wordsArrModel(this._size);
     this._words = words;
+    this.wordsArrModel(this._size);
   }
   set word(word: Word) {
-    this.wordsArrModel(this._size);
     this._words.push(word);
+    this.wordsArrModel(this._size);
   }
   set size(s: number) {
     this._size = s;
