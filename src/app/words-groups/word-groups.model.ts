@@ -7,7 +7,7 @@ export class Group {
   private _wordsArr: Word[][];
   private _size: number;
 
-  constructor(name: string, desc: string, words?: Word[]) {
+  constructor(name: string, desc?: string, words?: Word[]) {
     this.name = name;
     this.description = desc;
     this._words = words || [];
