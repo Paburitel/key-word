@@ -11,6 +11,7 @@ import { WordGroupComponent } from './words-groups/word-group/word-group.compone
 import { WordGroupEditComponent } from './words-groups/word-group-edit/word-group-edit.component';
 import { TagsComponent } from './help-component/tags/tags.component';
 import { AddGroupComponent } from './words-groups/add-group/add-group.component';
+import { ConfirmDirective } from './directive/confirm.directive';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AddGroupComponent } from './words-groups/add-group/add-group.component'
     WordGroupComponent,
     WordGroupEditComponent,
     TagsComponent,
-    AddGroupComponent
+    AddGroupComponent,
+    ConfirmDirective
   ],
   imports: [
     BrowserModule,
