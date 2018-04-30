@@ -1,7 +1,8 @@
 {
   "name": "key-words",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
+  "author": "Nikolay Malygin <malyhinmikalai@gmail.com>",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open 'Google Chrome'",
