@@ -46,10 +46,31 @@ export class Group {
     this._words.push(word);
     this.wordsArrModel(this._size);
   }
+  set wordsStr(word: string) {
+    this._words = this.rebuildStr(word);
+    this.wordsArrModel(this._size);
+
+  }
   set size(s: number) {
     this._size = s;
   }
   get size() {
     return this._size;
+  }
+  private rebuildStr(str: string) {
+    const addedWord: string = str || '';
+    const tempArr: Word[] = [].concat(this._words);
+    const wordsArr = addedWord.trim().split(',')
+      .join('').split(' ')
+      .filter((w) => w);
+    wordsArr.forEach((w) => {
+     if (!this.isSameWord(w, tempArr)) {
+       tempArr.push(new Word(w));
+     }
+    });
+    return tempArr;
+  }
+  private isSameWord(word: string, words: {}[]) {
+    return words.some((item: Word) => word === item.text);
   }
 }
