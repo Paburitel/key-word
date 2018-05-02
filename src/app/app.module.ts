@@ -13,6 +13,9 @@ import { TagsComponent } from './help-component/tags/tags.component';
 import { AddGroupComponent } from './words-groups/add-group/add-group.component';
 import { ConfirmDirective } from './directive/confirm.directive';
 
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './http-interceptors/index.service';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +31,12 @@ import { ConfirmDirective } from './directive/confirm.directive';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     NgbModule.forRoot(), // Add Bootstrap module here.
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
