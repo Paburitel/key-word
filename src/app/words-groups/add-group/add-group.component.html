@@ -1,0 +1,42 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add new group</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col">
+      <form #newGroupForm="ngForm" novalidate>
+        <div class="form-group">
+          <label for="groupName"><span class="text-danger">*</span>Group Name:</label>
+          <input type="text" class="form-control"
+                 [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched),
+                 'is-valid': name.valid}"
+               id="groupName"
+               name="groupName"
+               placeholder="Group name..."
+               [(ngModel)]="newGroup.name"
+               #name="ngModel"
+               required>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="groupDescription">Group Description:</label>
+          <textarea class="form-control" id="groupDescription" rows="3"
+          [(ngModel)]="newGroup.description" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" [disabled]="name.invalid" (click)="save(newGroup)">Save</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="c()">Close</button>
+  </div>
+</ng-template>
+<span>Add new</span>
+<button class="btn btn-outline-dark" (click)="open(content)">
+  <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+</button>
