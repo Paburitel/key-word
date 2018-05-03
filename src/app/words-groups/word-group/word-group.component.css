@@ -1,0 +1,18 @@
+.group-wrap {
+  margin-bottom: 10px;
+
+ }
+.word-arr {
+  display: inline-block;
+  background: #d7d7d7;
+  padding: 5px;
+  margin: 5px;
+  vertical-align: top;
+}
+
+.word-arr ul {
+  padding-left: 0;
+}
+.close {
+  margin-left: 10px;
+}
