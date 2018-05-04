@@ -1,23 +1,23 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Group } from '../words-group.model';
-import { Word } from '../word.model';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-word-group-edit',
   templateUrl: './word-group-edit.component.html',
-  styleUrls: ['./word-group-edit.component.css']
+  styleUrls: ['./word-group-edit.component.css'],
+  providers: []
 })
 export class WordGroupEditComponent implements OnInit {
   @Input() group: Group;
   @Output() shouldEditedGroup = new EventEmitter<Array<Object>>();
-  wordEdit: {}[];
   editGroup: Group;
   fnDeleteWord: Function;
   modalReference: any;
   AddedWord: string;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private httpService: HttpService) {
   }
   open(content) {
     this.editGroup.words = this.group.words.slice(0);
@@ -28,7 +28,7 @@ export class WordGroupEditComponent implements OnInit {
   }
   ngOnInit() {
     this.fnDeleteWord = (index, word) => this.deleteWord(index, word);
-    this.editGroup = new Group(this.group.name, this.group.description, this.group.words);
+    this.editGroup = new Group(this.group.name, this.group._id, this.group.description, this.group.words);
   }
   deleteWord(index: number, word: Object) {
     this.editGroup.words.splice(index, 1);
@@ -41,11 +41,16 @@ export class WordGroupEditComponent implements OnInit {
     this.AddedWord = '';
   }
   save(group) {
-    this.shouldEditedGroup.emit(group);
+    const data = {
+      name: group.name,
+      description: group.description,
+      words: group.words
+    };
+    this.httpService.putData(`http://localhost:3000/v0/groups`, group._id, data).subscribe((resp: any) => {
+      this.shouldEditedGroup.emit(group);
+    }, (error) => {
+      console.log(error);
+    });
     this.modalReference.close();
-  }
-
-  private isSameWord(word: string, words: {}[]) {
-    return words.some((item: Word) => word === item.text);
   }
 }
