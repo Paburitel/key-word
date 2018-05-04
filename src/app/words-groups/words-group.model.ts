@@ -3,15 +3,17 @@ import { Word } from './word.model';
 export class Group {
   public name: string;
   public description: string;
+  private __id: string;
   private _words: Word[];
   private _wordsArr: Word[][];
   private _size: number;
 
-  constructor(name: string, desc?: string, words?: Word[]) {
+  constructor(name: string, id: string, desc?: string, words?: Word[]) {
     this.name = name;
     this.description = desc;
     this._words = words || [];
     this._size = 5;
+    this.__id = id;
     this.wordsArrModel(this._size);
   }
 
@@ -31,6 +33,9 @@ export class Group {
       tempArr.push(tempModel.splice(0, size));
     }
     return this._wordsArr = tempArr;
+  }
+  get _id() {
+    return this.__id;
   }
   get words() {
     return this._words;
