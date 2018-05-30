@@ -20,6 +20,9 @@ import { ConfirmDirective } from './directive/confirm.directive';
 
 import { routing, appRoutingProviders } from './app.routes';
 
+import { AuthService } from './services/auth.service';
+import { HttpService } from './services/http.service';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,7 @@ import { routing, appRoutingProviders } from './app.routes';
     routing
   ],
   providers: [
-    httpInterceptorProviders, appRoutingProviders
+    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService
   ],
   bootstrap: [AppComponent]
 })

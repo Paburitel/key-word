@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-main',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewMainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
 }

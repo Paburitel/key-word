@@ -4,6 +4,7 @@ import { WordsGroupsComponent } from './words-groups/words-groups.component';
 import { CommonWordsGroupComponent } from './common-words-group/common-words-group.component';
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
+import { AuthenticatedGuard } from './guards/authenticated-guard.service';
 
 
 const mainChildrenRoutes: Routes = [
@@ -13,13 +14,11 @@ const mainChildrenRoutes: Routes = [
 /**
  * Routes path*/
 export const AppRoutes: Routes = [
-  { path: '', component: ViewMainComponent, children: mainChildrenRoutes},
+  { path: '', component: ViewMainComponent, children: mainChildrenRoutes, canActivate: [ AuthenticatedGuard ]},
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '/' }
 ];
 
-export const appRoutingProviders: any[] = [
-
-];
+export const appRoutingProviders: any[] = [ AuthenticatedGuard ];
 
 export const routing = RouterModule.forRoot(AppRoutes);
