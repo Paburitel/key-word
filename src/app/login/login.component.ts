@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   constructor( private httpService: HttpService, private  authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.authService.deleteToken();
   }
   logIn() {
     this.httpService.logIn(this.userCred).subscribe(
