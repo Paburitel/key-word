@@ -17,18 +17,18 @@ export class WordsGroupsComponent implements OnInit {
 
   constructor(private httpService: HttpService, private groupModelService: GroupModelService ) {
   }
-  addGroup(group: { name: string, description?: string }) {
-    this.httpService.postData('http://localhost:3000/v0/groups', group).subscribe((res) => {
-      this.assignGroups();
-    },
-      (error) => { console.log(error); });
-  }
   ngOnInit() {
     this.fnAddGroup = (obj) => this.addGroup(obj);
     this.assignGroups();
   }
-  private assignGroups() {
-    this.httpService.getData('http://localhost:3000/v0/groups').subscribe((resp: { data: any[] }) => {
+  addGroup(group: { name: string, description?: string }) {
+    this.httpService.postData('v0/groups', group).subscribe((res) => {
+      this.assignGroups();
+    },
+      (error) => { console.log(error); });
+  }
+  assignGroups() {
+    this.httpService.getData('v0/groups').subscribe((resp: { data: any[] }) => {
         this.groups = this.groupModelService.getGroups(resp.data);
       },
       (error) => {
@@ -40,7 +40,7 @@ export class WordsGroupsComponent implements OnInit {
     if (index < 0) {
       return;
     }
-    const url = `http://localhost:3000/v0/groups`;
+    const url = `v0/groups`;
     this.httpService.deleteData(url, group._id).subscribe((resp: any) => {
         this.assignGroups();
       },

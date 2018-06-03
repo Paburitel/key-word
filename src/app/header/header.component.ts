@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpService } from '../services/http.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   public isCollapsed = false;
 
-  constructor() { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
   }
-
+  signOut() {
+    this.httpService.signOut().subscribe((resp) => {
+      this.router.navigate(['/login']);
+    }, (err) => { console.log(err); });
+  }
 }

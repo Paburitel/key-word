@@ -1,0 +1,61 @@
+<div class="text-center wrap">
+  <form class="form-signin" [formGroup]="userForm" novalidate (ngSubmit)="submit()">
+    <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+    <div class="form-group">
+      <label for="name" class="sr-only">User name</label>
+      <input type="text" id="name" class="form-control"
+             placeholder="User name"
+             formControlName="username"
+             name="name"
+             autocomplete="off">
+      <p class="text-danger"
+           *ngIf="userForm.controls['username'].invalid && userForm.controls['username'].touched">
+        Required!
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input type="email" id="inputEmail" class="form-control"
+             placeholder="Email"
+             formControlName="email"
+             name="email"
+             autocomplete="off">
+      <p class="text-danger"
+           *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">
+        Required!
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control"
+             placeholder="Password"
+             formControlName="password"
+             name="password"
+             autocomplete="new-password">
+      <p class="text-danger"
+           *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched">
+        Required! At least {{ passwordLength }} characters!
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="inputConfPassword" class="sr-only">Confirm Password</label>
+      <input type="password" id="inputConfPassword" class="form-control"
+             placeholder="Confirm Password"
+             formControlName="passwordConfirm"
+             name="passwordConfirm"
+             autocomplete="new-password">
+
+      <p class="text-danger"
+           *ngIf="userForm.errors && userForm.errors.mismatch && userForm.controls['passwordConfirm'].touched">
+        Password dose not matched!
+      </p>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-lg btn-primary btn-block"
+              type="submit"
+              [disabled]="userForm.invalid">Register</button>
+    </div>
+    <div class="mt-2 mb-1 text-muted"><a href="" routerLink="/login">Log in...</a></div>
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+  </form>
+</div>
