@@ -4,6 +4,7 @@ import { WordsGroupsComponent } from './words-groups/words-groups.component';
 import { CommonWordsGroupComponent } from './common-words-group/common-words-group.component';
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { AuthenticatedGuard } from './guards/authenticated-guard.service';
 
 
@@ -16,6 +17,7 @@ const mainChildrenRoutes: Routes = [
 export const AppRoutes: Routes = [
   { path: '', component: ViewMainComponent, children: mainChildrenRoutes, canActivate: [ AuthenticatedGuard ]},
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '**', redirectTo: '/' }
 ];
 

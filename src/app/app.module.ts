@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './http-interceptors/index.service';
 
@@ -15,6 +15,7 @@ import { AddGroupComponent } from './words-groups/add-group/add-group.component'
 import { CommonWordsGroupComponent } from './common-words-group/common-words-group.component';
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 import { ConfirmDirective } from './directive/confirm.directive';
 
@@ -36,11 +37,13 @@ import { HttpService } from './services/http.service';
     ConfirmDirective,
     CommonWordsGroupComponent,
     ViewMainComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
     routing
