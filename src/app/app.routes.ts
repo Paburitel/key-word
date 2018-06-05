@@ -5,6 +5,8 @@ import { CommonWordsGroupComponent } from './common-words-group/common-words-gro
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthenticatedGuard } from './guards/authenticated-guard.service';
 
 
@@ -18,6 +20,8 @@ export const AppRoutes: Routes = [
   { path: '', component: ViewMainComponent, children: mainChildrenRoutes, canActivate: [ AuthenticatedGuard ]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'forgot', component: ForgotPasswordComponent },
+  { path: 'reset', component: ResetPasswordComponent },
   { path: '**', redirectTo: '/' }
 ];
 
