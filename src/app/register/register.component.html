@@ -34,7 +34,7 @@
              autocomplete="new-password">
       <p class="text-danger"
            *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched">
-        Required! At least {{ passwordLength }} characters!
+        Required! At least 8 characters!
       </p>
     </div>
     <div class="form-group">
@@ -56,6 +56,7 @@
               [disabled]="userForm.invalid">Register</button>
     </div>
     <div class="mt-2 mb-1 text-muted"><a href="" routerLink="/login">Log in...</a></div>
+    <div class="mt-2 mb-1 text-muted"><a href="" routerLink="/forgot">Forgot password...</a></div>
     <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
   </form>
 </div>

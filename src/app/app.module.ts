@@ -16,6 +16,8 @@ import { CommonWordsGroupComponent } from './common-words-group/common-words-gro
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 import { ConfirmDirective } from './directive/confirm.directive';
 
@@ -23,6 +25,9 @@ import { routing, appRoutingProviders } from './app.routes';
 
 import { AuthService } from './services/auth.service';
 import { HttpService } from './services/http.service';
+import {CryptoService} from './services/crypto.service';
+
+
 
 
 @NgModule({
@@ -38,7 +43,9 @@ import { HttpService } from './services/http.service';
     CommonWordsGroupComponent,
     ViewMainComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ResetPasswordComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,7 @@ import { HttpService } from './services/http.service';
     routing
   ],
   providers: [
-    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService
+    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService, CryptoService
   ],
   bootstrap: [AppComponent]
 })
