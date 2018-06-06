@@ -13,4 +13,9 @@ export class GroupModelService {
       return tempGroup;
     });
   }
+  getChekedWords(groups: Group[]) {
+    return groups.reduce((accum, gr) => {
+      return accum.concat(gr.getChecked());
+    }, []);
+  }
 }

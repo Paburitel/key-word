@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { MainLoaderComponent } from './main-loader/main-loader.component';
+import { ChosenWordsComponent } from './words-groups/chosen-words/chosen-words.component';
 
 import { ConfirmDirective } from './directive/confirm.directive';
 
@@ -28,6 +29,7 @@ import { AuthService } from './services/auth.service';
 import { HttpService } from './services/http.service';
 import {CryptoService} from './services/crypto.service';
 import {LoaderService} from './services/laoder.service';
+
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import {LoaderService} from './services/laoder.service';
     RegisterComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
-    MainLoaderComponent
+    MainLoaderComponent,
+    ChosenWordsComponent
   ],
   imports: [
     BrowserModule,

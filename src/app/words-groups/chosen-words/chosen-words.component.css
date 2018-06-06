@@ -1,0 +1,13 @@
+.chosen-wrap {
+  position: fixed;
+  width: 300px;
+  left: calc(50% - 150px);
+  top: 80px;
+}
+.chosen-wrap .alert {
+  padding: 5px 10px;
+}
+.btn-sm-cust {
+  font-size: 0.8rem;
+  padding: .1rem .4rem;
+}

@@ -22,6 +22,7 @@ export class ResetPasswordComponent implements OnInit {
   resetForm: FormGroup;
   pwdPattern = '^[a-z0-9_-]{8,18}$';
   token: '';
+  isErr = false;
   constructor(private httpService: HttpService,
               private  authService: AuthService, private router: Router, private crypto: CryptoService, private route: ActivatedRoute) {
     this.resetForm = new FormGroup({
@@ -48,6 +49,8 @@ export class ResetPasswordComponent implements OnInit {
       if (resp.changed) {
         this.router.navigate(['/login']);
       }
-    }, (err) => { console.log(err); });
+    }, (err) => {
+      this.isErr = true;
+      console.log(err); });
   }
 }
