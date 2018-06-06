@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { MainLoaderComponent } from './main-loader/main-loader.component';
 
 import { ConfirmDirective } from './directive/confirm.directive';
 
@@ -26,8 +27,7 @@ import { routing, appRoutingProviders } from './app.routes';
 import { AuthService } from './services/auth.service';
 import { HttpService } from './services/http.service';
 import {CryptoService} from './services/crypto.service';
-
-
+import {LoaderService} from './services/laoder.service';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import {CryptoService} from './services/crypto.service';
     LoginComponent,
     RegisterComponent,
     ResetPasswordComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    MainLoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,7 @@ import {CryptoService} from './services/crypto.service';
     routing
   ],
   providers: [
-    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService, CryptoService
+    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService, CryptoService, LoaderService
   ],
   bootstrap: [AppComponent]
 })
