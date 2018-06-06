@@ -11,9 +11,11 @@ import { Group } from '../words-group.model';
 export class WordGroupComponent implements OnInit {
   @Input() group: Group;
   @Output() shouldDeleteGroup = new EventEmitter<Group>();
+  @Output() wordCheck = new EventEmitter<void>();
   checkAllModel: boolean;
   checkAll(flag: boolean) {
     this.group.setCheck(flag);
+    this.wordCheck.emit();
   }
   constructor() {  }
 
@@ -23,6 +25,9 @@ export class WordGroupComponent implements OnInit {
     this.group.words = event.words;
     this.group.name = event.name;
     this.group.description = event.description;
+  }
+  checkWord(flag: boolean) {
+    this.wordCheck.emit();
   }
   deleteGroup(event) {
     if (event) {

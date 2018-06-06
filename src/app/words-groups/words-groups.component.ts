@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Group } from './words-group.model';
+import { Word } from './word.model';
 import { HttpService } from '../services/http.service';
 import { GroupModelService } from '../services/group-model.service';
 
@@ -14,6 +15,7 @@ export class WordsGroupsComponent implements OnInit {
 
   fnAddGroup: Function;
   groups: Group[] = [];
+  checkedWords: Word[] = [];
 
   constructor(private httpService: HttpService, private groupModelService: GroupModelService ) {
   }
@@ -30,10 +32,14 @@ export class WordsGroupsComponent implements OnInit {
   assignGroups() {
     this.httpService.getData('v0/groups').subscribe((resp: { data: any[] }) => {
         this.groups = this.groupModelService.getGroups(resp.data);
+        this.wordChange();
       },
       (error) => {
         console.log(error);
       });
+  }
+  wordChange() {
+    this.checkedWords = this.groupModelService.getChekedWords(this.groups);
   }
   deleteGroup(group: Group) {
     const index = this.groups.findIndex((g) => g._id === group._id);

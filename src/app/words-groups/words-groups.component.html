@@ -9,7 +9,9 @@
 <div class="row">
   <div class="col">
     <app-word-group (shouldDeleteGroup)="deleteGroup($event)"
+                    (wordCheck)="wordChange()"
       *ngFor="let groupEl of groups"
       [group]="groupEl"></app-word-group>
   </div>
 </div>
+<app-chosen-words [words]="checkedWords" *ngIf="checkedWords.length"></app-chosen-words>

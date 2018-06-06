@@ -25,6 +25,8 @@ export class ForgotPasswordComponent implements OnInit {
       if (resp.emailSent) {
         this.isEmailSent = true;
       }
-    }, (err) => { console.log(err); });
+    }, (err) => {
+      console.log(err);
+    });
   }
 }

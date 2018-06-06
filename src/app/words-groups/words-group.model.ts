@@ -34,6 +34,9 @@ export class Group {
     }
     return this._wordsArr = tempArr;
   }
+  getChecked() {
+    return this._words.filter((w) => w.checked);
+  }
   get _id() {
     return this.__id;
   }
