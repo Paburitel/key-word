@@ -4,6 +4,7 @@ import { Group } from './words-group.model';
 import { Word } from './word.model';
 import { HttpService } from '../services/http.service';
 import { GroupModelService } from '../services/group-model.service';
+import { UrlService } from '../services/url.service';
 
 @Component({
   selector: 'app-words-groups',
@@ -17,20 +18,20 @@ export class WordsGroupsComponent implements OnInit {
   groups: Group[] = [];
   checkedWords: Word[] = [];
 
-  constructor(private httpService: HttpService, private groupModelService: GroupModelService ) {
+  constructor(private httpService: HttpService, private groupModelService: GroupModelService, private url: UrlService) {
   }
   ngOnInit() {
     this.fnAddGroup = (obj) => this.addGroup(obj);
     this.assignGroups();
   }
   addGroup(group: { name: string, description?: string }) {
-    this.httpService.postData('v0/groups', group).subscribe((res) => {
+    this.httpService.postData(this.url.groupsUrl.postGroup, group).subscribe((res) => {
       this.assignGroups();
     },
       (error) => { console.log(error); });
   }
   assignGroups() {
-    this.httpService.getData('v0/groups').subscribe((resp: { data: any[] }) => {
+    this.httpService.getData(this.url.groupsUrl.getUserGroups).subscribe((resp: { data: any[] }) => {
         this.groups = this.groupModelService.getGroups(resp.data);
         this.wordChange();
       },
@@ -46,8 +47,7 @@ export class WordsGroupsComponent implements OnInit {
     if (index < 0) {
       return;
     }
-    const url = `v0/groups`;
-    this.httpService.deleteData(url, group._id).subscribe((resp: any) => {
+    this.httpService.deleteData(this.url.groupsUrl.delUserGroup(group._id)).subscribe((resp: any) => {
         this.assignGroups();
       },
       (error) => {

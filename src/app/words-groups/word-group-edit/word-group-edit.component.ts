@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Group } from '../words-group.model';
 import { HttpService } from '../../services/http.service';
-
+import { UrlService } from '../../services/url.service';
 @Component({
   selector: 'app-word-group-edit',
   templateUrl: './word-group-edit.component.html',
@@ -17,7 +17,7 @@ export class WordGroupEditComponent implements OnInit {
   modalReference: any;
   AddedWord: string;
 
-  constructor(private modalService: NgbModal, private httpService: HttpService) {
+  constructor(private modalService: NgbModal, private httpService: HttpService, private url: UrlService) {
   }
   open(content) {
     this.editGroup.words = this.group.words.slice(0);
@@ -46,7 +46,7 @@ export class WordGroupEditComponent implements OnInit {
       description: group.description,
       words: group.words
     };
-    this.httpService.putData(`v0/groups`, group._id, data).subscribe((resp: any) => {
+    this.httpService.putData(this.url.groupsUrl.putUserGroup(group._id), data).subscribe((resp: any) => {
       this.shouldEditedGroup.emit(group);
     }, (error) => {
       console.log(error);

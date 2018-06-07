@@ -27,8 +27,9 @@ import { routing, appRoutingProviders } from './app.routes';
 
 import { AuthService } from './services/auth.service';
 import { HttpService } from './services/http.service';
-import {CryptoService} from './services/crypto.service';
-import {LoaderService} from './services/laoder.service';
+import { CryptoService } from './services/crypto.service';
+import { LoaderService } from './services/laoder.service';
+import { UrlService } from './services/url.service';
 
 
 
@@ -60,7 +61,7 @@ import {LoaderService} from './services/laoder.service';
     routing
   ],
   providers: [
-    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService, CryptoService, LoaderService
+    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService, CryptoService, LoaderService, UrlService
   ],
   bootstrap: [AppComponent]
 })

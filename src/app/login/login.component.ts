@@ -11,11 +11,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  remember: boolean;
   constructor( private httpService: HttpService, private  authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
+    this.remember = false;
   }
   ngOnInit() {
     this.authService.deleteToken();
@@ -26,9 +28,12 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.value.password
       }).subscribe(
         (res: any) => {
-          this.authService.setToken(res);
+          this.authService.setToken(res, this.remember);
           this.router.navigate(['/']);
         },
-        (err) => { console.log(err); });
+        (err) => {
+          this.authService.deleteToken();
+          console.log(err);
+        });
   }
 }
