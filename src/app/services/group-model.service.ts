@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Group } from '../words-groups/words-group.model';
-import { Word } from '../words-groups/word.model';
+import { Group } from '../models/words-group.model';
+import { Word } from '../models/word.model';
 
 @Injectable()
 export class GroupModelService {
@@ -13,7 +13,7 @@ export class GroupModelService {
       return tempGroup;
     });
   }
-  getChekedWords(groups: Group[]) {
+  getCheckedWords(groups: Group[]) {
     return groups.reduce((accum, gr) => {
       return accum.concat(gr.getChecked());
     }, []);

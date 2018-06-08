@@ -1,5 +1,5 @@
 import {Component, Input, OnInit } from '@angular/core';
-import {Word} from '../word.model';
+import {Word} from '../../models/word.model';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {ClipboardService} from '../../services/clipboard.service';
 

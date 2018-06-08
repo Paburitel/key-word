@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Group } from '../words-group.model';
+import { Group } from '../../models/words-group.model';
 
 @Component({
   selector: 'app-add-group',

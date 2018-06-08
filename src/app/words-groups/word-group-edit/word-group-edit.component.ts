@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Group } from '../words-group.model';
+import { Group } from '../../models/words-group.model';
 import { HttpService } from '../../services/http.service';
 import { UrlService } from '../../services/url.service';
 @Component({
