@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './http-interceptors/index.service';
+
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,7 +16,7 @@ import { WordGroupEditComponent } from './words-groups/word-group-edit/word-grou
 import { TagsComponent } from './help-component/tags/tags.component';
 import { AddGroupComponent } from './words-groups/add-group/add-group.component';
 import { CommonWordsGroupsComponent } from './common-words-groups/common-words-groups.component';
-import { CommonWordsGroupComponent } from  './common-words-groups/common-words-group/common-words-group.component';
+import { CommonWordsGroupComponent } from './common-words-groups/common-words-group/common-words-group.component';
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -56,10 +59,12 @@ import { UrlService } from './services/url.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
+    SimpleNotificationsModule.forRoot({position: ['top', 'right']}),
     routing
   ],
   providers: [
