@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { WordsGroupsComponent } from './words-groups/words-groups.component';
-import { CommonWordsGroupComponent } from './common-words-group/common-words-group.component';
+import { CommonWordsGroupsComponent } from './common-words-groups/common-words-groups.component';
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -12,7 +12,7 @@ import { AuthenticatedGuard } from './guards/authenticated-guard.service';
 
 const mainChildrenRoutes: Routes = [
   { path: '', component: WordsGroupsComponent },
-  { path: 'shared-groups', component: CommonWordsGroupComponent }
+  { path: 'shared-groups', component: CommonWordsGroupsComponent }
 ];
 /**
  * Routes path*/

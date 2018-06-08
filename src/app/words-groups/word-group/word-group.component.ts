@@ -1,7 +1,7 @@
-///<reference path="../../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
+
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 
-import { Group } from '../words-group.model';
+import { Group } from '../../models/words-group.model';
 
 @Component({
   selector: 'app-word-group',

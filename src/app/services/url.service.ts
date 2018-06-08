@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class UrlService {
   private _basePass = 'http://localhost:3000';
   private _groupsUrl = {
+    getCommonGroups: '/v0/groups',
     getUserGroups: '/v0/user/groups',
     _getUserGroup: '/v0/user/groups/',
     getUserGroup(id: string) {

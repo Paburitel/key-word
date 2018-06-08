@@ -12,7 +12,8 @@ import { WordGroupComponent } from './words-groups/word-group/word-group.compone
 import { WordGroupEditComponent } from './words-groups/word-group-edit/word-group-edit.component';
 import { TagsComponent } from './help-component/tags/tags.component';
 import { AddGroupComponent } from './words-groups/add-group/add-group.component';
-import { CommonWordsGroupComponent } from './common-words-group/common-words-group.component';
+import { CommonWordsGroupsComponent } from './common-words-groups/common-words-groups.component';
+import { CommonWordsGroupComponent } from  './common-words-groups/common-words-group/common-words-group.component';
 import { ViewMainComponent } from './view-main/view-main.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -43,6 +44,7 @@ import { UrlService } from './services/url.service';
     TagsComponent,
     AddGroupComponent,
     ConfirmDirective,
+    CommonWordsGroupsComponent,
     CommonWordsGroupComponent,
     ViewMainComponent,
     LoginComponent,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Group } from './words-group.model';
-import { Word } from './word.model';
+import { Group } from '../models/words-group.model';
+import { Word } from '../models/word.model';
 import { HttpService } from '../services/http.service';
 import { GroupModelService } from '../services/group-model.service';
 import { UrlService } from '../services/url.service';
@@ -40,7 +40,7 @@ export class WordsGroupsComponent implements OnInit {
       });
   }
   wordChange() {
-    this.checkedWords = this.groupModelService.getChekedWords(this.groups);
+    this.checkedWords = this.groupModelService.getCheckedWords(this.groups);
   }
   deleteGroup(group: Group) {
     const index = this.groups.findIndex((g) => g._id === group._id);

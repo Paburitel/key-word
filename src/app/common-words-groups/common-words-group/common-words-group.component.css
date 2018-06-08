@@ -1,0 +1,14 @@
+.c-group-wrap {
+  position: relative;
+  display: inline-block;
+  background-color: #d7d7d7;
+  border: 1px solid #d7d7d7;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.c-group-wrap:hover {
+  transform: scale(1.1);
+}
+h6 {
+  margin-bottom: 0;
+}
