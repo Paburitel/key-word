@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   remember: boolean;
   constructor( private httpService: HttpService, private  authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      username: new FormControl('TestUser', Validators.required),
+      password: new FormControl('keywords', Validators.required)
     });
     this.remember = false;
   }
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.value.password
       }).subscribe(
         (res: any) => {
-          this.authService.setToken(res, this.remember);
+          this.authService.rememberMe(this.remember);
+          this.authService.setToken(res);
           this.router.navigate(['/']);
         },
         (err) => {

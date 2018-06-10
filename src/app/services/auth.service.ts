@@ -8,9 +8,11 @@ export class AuthService {
   constructor() {
     this.saveToken = !!localStorage.getItem(this.tokenKey);
   }
-  setToken(token: any, remember?: boolean) {
-    this.saveToken = !!remember;
-    if (this.saveToken) {
+  rememberMe(flag: boolean) {
+    this.saveToken = flag;
+  }
+  setToken(token: any) {
+    if (this.isSaveToken()) {
       this.tempToken = null;
       localStorage.setItem(this.tokenKey, JSON.stringify(token));
     } else {
