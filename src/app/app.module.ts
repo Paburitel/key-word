@@ -34,6 +34,7 @@ import { HttpService } from './services/http.service';
 import { CryptoService } from './services/crypto.service';
 import { LoaderService } from './services/laoder.service';
 import { UrlService } from './services/url.service';
+import { RefreshTokenResolveService } from './resolves/refresh-token-resolve.service';
 
 
 
@@ -64,11 +65,12 @@ import { UrlService } from './services/url.service';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    SimpleNotificationsModule.forRoot({position: ['top', 'right']}),
+    SimpleNotificationsModule.forRoot({position: ['bottom', 'right']}),
     routing
   ],
   providers: [
-    httpInterceptorProviders, appRoutingProviders, AuthService, HttpService, CryptoService, LoaderService, UrlService
+    httpInterceptorProviders, appRoutingProviders, AuthService,
+    HttpService, CryptoService, LoaderService, UrlService, RefreshTokenResolveService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../services/http.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { HttpService } from '../services/http.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-view-main',
@@ -8,11 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-main.component.css']
 })
 export class ViewMainComponent implements OnInit {
-
-  constructor(private httpService: HttpService, private router: Router) { }
-
+  token: any;
+  constructor(private httpService: HttpService, private router: Router, private route: ActivatedRoute, private authService: AuthService) { }
   ngOnInit() {
-
+    this.token = this.route.snapshot.data['token'];
+    this.authService.setToken(this.token);
   }
-
 }

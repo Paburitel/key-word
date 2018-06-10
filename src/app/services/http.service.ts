@@ -40,13 +40,20 @@ export class HttpService {
     };
     return this.http.post<void>(`${this.basePath}/api/oauth/token`, payload);
   }
-
+  refreshToken(): Observable<void> {
+    const payload = {
+      client_id: '665935136173-43gdh0vlhohvh21p3u3dv7p0j1i49an7.apps.googleusercontent.com',
+      client_secret: 'noCbeZe7A6y-vXoesqtlt4m1',
+      grant_type: 'refresh_token',
+      refresh_token: this.authService.getToken().refresh_token
+    };
+    return this.http.post<void>(`${this.basePath}/api/oauth/token`, payload);
+  }
   register(user: {username: string, email: string, password: string}): Observable<void> {
     user.password = this.crypto.getHashedPassword(user.password);
     return this.http.post<void>(`${this.basePath}/api/oauth/reg`, user);
   }
   signOut(): Observable<void> {
-    console.log('sinout');
     return this.http.delete<void>(`${this.basePath}/api/signout`, this.getHeaders());
   }
   forgotPassword(email: string): Observable<any> {

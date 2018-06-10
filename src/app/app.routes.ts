@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthenticatedGuard } from './guards/authenticated-guard.service';
+import { RefreshTokenResolveService } from './resolves/refresh-token-resolve.service';
 
 
 const mainChildrenRoutes: Routes = [
@@ -17,7 +18,13 @@ const mainChildrenRoutes: Routes = [
 /**
  * Routes path*/
 export const AppRoutes: Routes = [
-  { path: '', component: ViewMainComponent, children: mainChildrenRoutes, canActivate: [ AuthenticatedGuard ]},
+  { path: '', component: ViewMainComponent,
+    children: mainChildrenRoutes,
+    canActivate: [ AuthenticatedGuard ],
+    resolve : {
+      token: RefreshTokenResolveService
+    }
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot', component: ForgotPasswordComponent },
