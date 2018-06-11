@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   remember: boolean;
   constructor( private httpService: HttpService, private  authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
-      username: new FormControl('TestUser', Validators.required),
-      password: new FormControl('keywords', Validators.required)
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
     this.remember = false;
   }
