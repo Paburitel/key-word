@@ -9,7 +9,7 @@ import { UrlService } from './url.service';
 export class HttpService {
   basePath: string;
   constructor(private http: HttpClient, private authService: AuthService, private crypto: CryptoService, private url: UrlService) {
-    this.basePath = this.url.basePass;
+    this.basePath = this.url.basePath;
   }
   private getHeaders() {
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${ this.authService.getToken().access_token }`  });
