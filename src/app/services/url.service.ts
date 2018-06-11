@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UrlService {
-  private _basePass = 'http://localhost:3000';
+  private _basePath = 'https://key-words.herokuapp.com';
   private _groupsUrl = {
     getCommonGroups: '/v0/groups',
     getUserGroups: '/v0/user/groups',
@@ -24,8 +24,8 @@ export class UrlService {
     },
   };
   constructor() { }
-  get basePass() {
-    return this._basePass;
+  get basePath() {
+    return this._basePath;
   }
   get groupsUrl() {
     return this._groupsUrl;
