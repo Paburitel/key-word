@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.authService.deleteToken();
   }
-
   private  passwordMatchValidator(g: FormGroup) {
     return g.get('password').value === g.get('passwordConfirm').value
       ? null : {'mismatch': true};
@@ -39,19 +38,8 @@ export class RegisterComponent implements OnInit {
       password: this.userForm.value.password
     };
     this.httpService.register(data).subscribe((resp) => {
-      this.logIn(data);
+      this.router.navigate(['/login']);
+      this.userForm.reset();
     }, (err) => { console.log(err); });
-    console.log(this.userForm.value);
-  }
-  logIn(user: any) {
-    this.httpService.logIn({
-      username: user.username,
-      password: user.password
-    }).subscribe(
-      (res: any) => {
-        this.authService.setToken(res);
-        this.router.navigate(['/']);
-      },
-      (err) => { console.log(err); });
   }
 }
