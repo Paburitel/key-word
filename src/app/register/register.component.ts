@@ -3,11 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpService } from '../services/http.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-// TODO: should be deleted
-/** temp user
- * username: TestUser,
- * email: nik13nik82@gmail.com
- * password: keywords*/
 
 @Component({
   selector: 'app-register',
@@ -16,12 +11,11 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   userForm: FormGroup;
-  unamePattern = '^[a-z0-9_-]{1,15}$';
-  pwdPattern = '^[a-z0-9_-]{8,18}$';
+  unamePattern = '^[a-zA-Z0-9_-]{3,15}$';
+  pwdPattern = '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}';
   constructor(private httpService: HttpService, private  authService: AuthService, private router: Router) {
     this.userForm  = new FormGroup({
       username: new FormControl('', [Validators.required,
-        Validators.minLength(1),
         Validators.pattern(this.unamePattern)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('',

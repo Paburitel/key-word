@@ -12,7 +12,7 @@ export class HttpService {
     this.basePath = this.url.basePath;
   }
   private getHeaders() {
-    const headers = new HttpHeaders({ 'Authorization': `Bearer ${ this.authService.getToken().access_token }`  });
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${ this.authService.getToken().access_token }`   });
     return { headers: headers };
   }
   getData(url: string) {
