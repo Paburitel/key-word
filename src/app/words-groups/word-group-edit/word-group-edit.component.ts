@@ -46,6 +46,7 @@ export class WordGroupEditComponent implements OnInit {
       description: group.description,
       words: group.words
     };
+    console.log(data);
     this.httpService.putData(this.url.groupsUrl.putUserGroup(group._id), data).subscribe((resp: any) => {
       this.shouldEditedGroup.emit(group);
     }, (error) => {

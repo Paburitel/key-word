@@ -20,7 +20,7 @@ import {CryptoService} from '../services/crypto.service';
 })
 export class ResetPasswordComponent implements OnInit {
   resetForm: FormGroup;
-  pwdPattern = '^[a-z0-9_-]{8,18}$';
+  pwdPattern = '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}';
   token: '';
   isErr = false;
   constructor(private httpService: HttpService,
